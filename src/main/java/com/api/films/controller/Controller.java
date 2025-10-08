@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/films")
+@RequestMapping("/filmes")
 public class Controller {  
     
-    @GetMapping("/test")
+    @GetMapping("/teste")
     public String testRoute() {
-        return "✅ Minha primeira rota está funcionando! 🎉";
+        return "Minha primeira rota está funcionando!";
     }
     
     

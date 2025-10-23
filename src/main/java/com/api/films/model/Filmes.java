@@ -1,6 +1,10 @@
 package com.api.films.model;
 //Pacote responsávael por criar a classe modelo do banco de dados e suas entidades
-import jakarta.persistence.entity;
+
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 
 
 

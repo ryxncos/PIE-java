@@ -2,15 +2,14 @@ package com.api.films.model;
 //Pacote responsávael por criar a classe modelo do banco de dados e suas entidades
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-
 
 
 @Entity(name = "filmes")
 @Table(name = "filmes")
 public class Filmes {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Estratégia de valor do "int id" automatico
 	private Integer id;
 	private String titulo;
 	private String diretor;

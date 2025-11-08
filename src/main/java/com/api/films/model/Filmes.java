@@ -17,12 +17,14 @@ public class Filmes {
 	private String anoLancamento;
 	private String sinopse;
 	private String elenco;
+	private String review;
+	
 	
 	public Filmes(){
 		
 	}
 	
-	public Filmes(Integer id, String titulo, String diretor, String genero, String anoLancamento, String sinopse, String elenco) {
+	public Filmes(Integer id, String titulo, String diretor, String genero, String anoLancamento, String sinopse, String elenco, String review) {
 		// this => é a palavra chave que é usada para se referir ao atual objeto, sendo ele o Filmes...
 		this.id = id;
 		this.titulo = titulo;
@@ -31,6 +33,7 @@ public class Filmes {
 		this.anoLancamento = anoLancamento;
 		this.sinopse = sinopse;
 		this.elenco = elenco;
+		this.review = review;
 		
 		
 	}
@@ -90,5 +93,13 @@ public class Filmes {
 	}
 	public void setElenco(String elenco) {
 		this.elenco = elenco;
+	}
+	
+	// get/set review
+	public String getReview() {
+		return review;
+	}
+	public void setReview(String review) {
+		this.review = review;
 	}
 }

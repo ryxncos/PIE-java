@@ -1,6 +1,8 @@
 package com.api.films.controller; 
 
 import java.util.List;
+import java.util.Optional;
+
 import com.api.films.model.Filmes;
 import com.api.films.repository.FilmeRepository;
 import com.api.films.dtos.FilmesDto;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,23 @@ public class Controller {
         return ResponseEntity.status(HttpStatus.OK).body(listaFilmes);
         
     }
+    //Método para o consumo do API baseado no ID do filme
+    @GetMapping("/api/filmes/{id}")
+    public ResponseEntity<?> getById(@PathVariable Integer id) {
+        Optional<Filmes> filmes = repository.findById(id);
+        
+        try {
+            if (filmes.isPresent()) {
+                return ResponseEntity.status(HttpStatus.OK).body(filmes.get());
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("FILME NÃO ENCONTRADO");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro interno do servidor");
+        }
+    }
+    	
+   
     
     @PostMapping("/post")
     public ResponseEntity<Filmes> save(@RequestBody FilmesDto dto) {

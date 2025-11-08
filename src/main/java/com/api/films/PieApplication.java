@@ -8,6 +8,6 @@ public class PieApplication {
     
     public static void main(String[] args) {
         SpringApplication.run(PieApplication.class, args);
-        System.out.println("Aplicação rodando na porta 3000");
+        System.out.println("Aplicação rodando na porta 8080");
     }
 }

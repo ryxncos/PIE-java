@@ -22,15 +22,16 @@ public class Controller {
     @Autowired
 	FilmeRepository repository; //Instancia (é um objeto concreto criado a partir de uma classe) referenciando nosso repository
 	
-    @GetMapping("/teste")
-    public ResponseEntity getAll() { //Response => Classe que contem métodos com as melhores práticas para o retorno de informações de uma API
+    @SuppressWarnings("rawtypes")
+	@GetMapping("/api/filmes")
+    public ResponseEntity<List> getAll() { //Response => Classe que contem métodos com as melhores práticas para o retorno de informações de uma API
         List<Filmes> listaFilmes = repository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(listaFilmes);
         
     }
     
     @PostMapping("/post")
-    public ResponseEntity save(@RequestBody FilmesDto dto) {
+    public ResponseEntity<Filmes> save(@RequestBody FilmesDto dto) {
     	var filmes = new Filmes();
     	BeanUtils.copyProperties(dto, filmes);
     	return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(filmes));
